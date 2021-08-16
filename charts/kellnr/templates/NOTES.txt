@@ -1,0 +1,6 @@
+Thank you for installing {{ .Chart.Name }}.
+
+Installed version: {{ .Chart.Version }}
+
+  - Web UI & API Endpoint: "http://{{ .Values.kellnr.apiAddress }}"
+  - Crate Index Endpoint: "git://{{ .Values.kellnr.apiAddress }}:{{ .Values.service.index.nodePort }}/index"
