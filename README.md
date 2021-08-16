@@ -9,8 +9,8 @@ Add the *Bitfalter* helm repository which contains *Kellnr*:
 # Add  repository
 helm repo add bitfalter https://bitfalter.github.io/helm
 
-# List latest version
-helm search repo bitfalter
+# Update to latest version
+helm repo update
 ```
 
 For a list of possible configuration flags see below: [Configuration](#Configuration)
@@ -27,15 +27,15 @@ For a persistent *Kellnr* instance, a *PersistentVolumeClaim* (PVC) is needed. T
 ```bash
 # Use an existing PersistentStorage (storage_name) to get a PersistentStorageClaim.
 # The storage class can be overwritten with "pvc.storageClassName" and defaults to "manual".
-helm install bitfalter/kellnr  \ 
-    --set pvc.enabled=true --set pvc.name="storage_name"
+helm install kellnr bitfalter/kellnr \ 
+    --set pvc.enabled=true --set pvc.name="storage_name" \
     --set kellnr.license="..." \
     --set kellnr.apiAddress="kellnr.example.com"
 ```
 
 ```bash
 # Create a new PersistentVolume and a corresponding claim. The host path e.g. "/mnt/kellnr" has to exists before the PV is created.
-helm install bitfalter/kellnr  \ 
+helm install kellnr bitfalter/kellnr \ 
     --set pv.enabled=true --set pv.path="/mnt/kellnr" \
     --set pvc.enabled=true \
     --set kellnr.license="..." \
