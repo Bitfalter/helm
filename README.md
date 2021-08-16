@@ -19,7 +19,7 @@ To install a minimal *Kellnr* installation with in-memory storage run the comman
 
 ```bash
 # Replace the license with your license key and set the address where Kellnr will be reachable.
-helm install bitfalter/kellnr --set kellnr.license="..." --set kellnr.apiAddress="kellnr.example.com"
+helm install kellnr bitfalter/kellnr --set kellnr.license="..." --set kellnr.apiAddress="kellnr.example.com"
 ```
 
 For a persistent *Kellnr* instance, a *PersistentVolumeClaim* (PVC) is needed. The helm chart can create a *PersistentVolumeClaim* and *PersistentVolume* (PV), if you don't have one already.
