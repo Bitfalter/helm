@@ -114,6 +114,6 @@ If the Helm Chart does not work for you for any reason or you need a feature, fe
 
 Run the following steps to release a new version of the chart.
 
-1. Change the `appVersion` in [Charts.yaml](./charts/kellnr/Charts.yaml) to the current [Docker image version](https://hub.docker.com/repository/docker/bitfalter/kellnr).
-2. Increase the `version` in [Charts.yaml](./charts/kellnr/Charts.yaml).
-3. Push or create a Pull-Request to the `main` branch.
+1. Change the `appVersion` in [Chart.yaml](./charts/kellnr/Chart.yaml) to the current [Docker image version](https://hub.docker.com/repository/docker/bitfalter/kellnr).
+2. Increase the `version` in [Chart.yaml](./charts/kellnr/Chart.yaml).
+3. Push or create a Pull-Request to the `main`/`master` branch.
