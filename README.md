@@ -109,7 +109,10 @@ For a full set of possible variables see: [values.yaml](./charts/kellnr/values.y
 ## Feedback
 
 If the Helm Chart does not work for you for any reason or you need a feature, feel free to create a Github issue or [contact us](mailto:contact@bitfalter.com) via e-mail.
+
 ## Release a new version
+
+Run the following steps to release a new version of the chart.
 
 1. Change the `appVersion` in [Charts.yaml](./charts/kellnr/Charts.yaml) to the current [Docker image version](https://hub.docker.com/repository/docker/bitfalter/kellnr).
 2. Increase the `version` in [Charts.yaml](./charts/kellnr/Charts.yaml).
