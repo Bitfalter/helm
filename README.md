@@ -2,7 +2,7 @@
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kellnr)](https://artifacthub.io/packages/search?repo=kellnr)
 
-This repository provides a [Helm](https://helm.sh/) Chart for [Kellnr](https://www.bitfalter.com/kellnr), the Rust registry for self-hosting Crates.
+This repository provides a [Helm](https://helm.sh/) Chart for [Kellnr](https://www.bitfalter.com/kellnr), the Rust registry for self-hosting crates.
 
 ## Installation
 
@@ -47,6 +47,18 @@ helm install kellnr bitfalter/kellnr \
 
 For information about the _Cargo_ setup and default values, see the official [Kellnr documentation](https://www.bitfalter.com/documentation).
 
+## Upgrade
+
+Upgrade _Kellnr_ by updating the Helm repository and applying the latest version.
+
+```bash
+# Update helm repositories
+helm repo update
+
+# Upgrade Kellnr
+helm upgrade kellnr bitfalter/kellnr
+```
+
 ## Configuration
 
 All settings can be set with the `--set name=value` flag on `helm install`. Some settings are required and have to be provided other are recommended for security reasons.
@@ -62,18 +74,19 @@ Basic settings to configure _Kellnr_.
 | kellnr.adminPwd   | Recommended | Password of the admin user used by the web-ui. The password can be changed anytime in the UI. | kellnr                           |
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |
 | kellnr.debug      | No          | Start _Kellnr_ in debug mode for additional console output.                                   | false                            |
+|kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~2GB of storage + storage for all cached crates.| false |
 
 ### Service
 
-Settings to configure the web-ui/API endpoint service and the Crate index service.
+Settings to configure the web-ui/API endpoint service and the crate index service.
 
 | Setting                | Required | Description                                                   | Default   |
 | ---------------------- | -------- | ------------------------------------------------------------- | --------- |
 | service.api.type       | No       | Type of the service that exports the API and web-ui endpoint. | ClusterIP |
 | service.api.port       | No       | Port of the service that exports the API and web-ui endpoint. | 8000      |
-| service.index.type     | No       | Type of the service that exports the Crate index.             | NodePort  |
-| service.index.port     | No       | Internal port of the service that exports the Crate index.    | 9418      |
-| service.index.nodePort | No       | External port of the service that exports the Crate index.    | 30418     |
+| service.index.type     | No       | Type of the service that exports the crate index.             | NodePort  |
+| service.index.port     | No       | Internal port of the service that exports the crate index.    | 9418      |
+| service.index.nodePort | No       | External port of the service that exports the crate index.    | 30418     |
 
 ### Ingress
 

@@ -49,6 +49,7 @@ kellnr:
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
   debug: false
+  cratesIoProxy: false
 
 service:
   api:
@@ -75,8 +76,7 @@ pvc:
 ingress:
   enabled: true
   className: ""
-  annotations:
-    {}
+  annotations: {}
 
   pathType: Prefix
   tls: []
