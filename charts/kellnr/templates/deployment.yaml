@@ -50,8 +50,10 @@ spec:
             value: {{ required "A valid license is required." .Values.kellnr.license | quote }}
           - name: KELLNR_API_ADDRESS
             value: {{ required "A valid API address, where Kellnr will be reachable is required." .Values.kellnr.apiAddress | quote }}
-          - name: KELLNR_INDEX_PORT
+          - name: KELLNR_API_PORT
             value: {{ .Values.service.api.port | quote }}
+          - name: KELLNR_INDEX_PORT
+            value: {{ .Values.service.index.port | quote }}
           - name: KELLNR_ADMIN_PWD
             value: {{ .Values.kellnr.adminPwd | quote }}
           - name: KELLNR_ADMIN_TOKEN
