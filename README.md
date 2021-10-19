@@ -73,7 +73,7 @@ Basic settings to configure _Kellnr_.
 | kellnr.apiAddress | Yes         | Address (IP or hostname) where _Kellnr_ is reachable                                          |                                  |
 | kellnr.adminPwd   | Recommended | Password of the admin user used by the web-ui. The password can be changed anytime in the UI. | kellnr                           |
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |
-| kellnr.debug      | No          | Start _Kellnr_ in debug mode for additional console output.                                   | false                            |
+| kellnr.logLevel      | No          | Set the log level. Has to be one of *off*, *critical*, *normal*, *debug*.| off                            |
 |kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~2GB of storage + storage for all cached crates.| false |
 
 ### Service
@@ -107,7 +107,7 @@ A _PersistentVolume_ can be created for _Kellnr_ to hold all stored data.
 | pv.enabled          | No               | Enable a _PersistentVolume_ to store the data from _Kellnr_        | false   |
 | pv.name             | No               | Name of the _PersistentVolume_                                     | kellnr  |
 | pv.storageClassName | No               | storageClassName of the _PersistentVolume_                         | manual  |
-| pv.storage          | No               | Size of the storage.                                               | 500Mi   |
+| pv.storage          | No               | Size of the storage.                                               | 5Gi   |
 | pv.path             | Yes (if enabled) | Host path to the storage. Needs to exists before the PV is created | ""      |
 
 A _PersistentVolumeClaim_ can be used by _Kellnr_ to hold all stored data.
@@ -117,7 +117,7 @@ A _PersistentVolumeClaim_ can be used by _Kellnr_ to hold all stored data.
 | pvc.enabled          | No       | Enable a _PersistentVolumeClaim_ to store the data from _Kellnr_ | false   |
 | pvc.name             | No       | Name of the _PersistentVolumeClaim_                              | kellnr  |
 | pvc.storageClassName | No       | storageClassName of the _PersistentVolumeClaim_                  | manual  |
-| pvc.storage          | No       | Size of the storage.                                             | 500Mi   |
+| pvc.storage          | No       | Size of the storage.                                             | 5Gi   |
 
 For a full set of possible variables see: [values.yaml](./charts/kellnr/values.yaml)
 

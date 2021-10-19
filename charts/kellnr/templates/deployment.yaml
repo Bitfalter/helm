@@ -40,11 +40,9 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          {{- if .Values.kellnr.debug }}
+          {{- if eq .Values.kellnr.logLevel "debug" }}
           - name: RUST_BACKTRACE
             value: "1"
-          - name: ROCKET_ENV
-            value: "development"
           {{- end }}
           - name: KELLNR_LICENSE
             value: {{ required "A valid license is required." .Values.kellnr.license | quote }}
@@ -60,6 +58,8 @@ spec:
             value: {{ .Values.kellnr.adminToken | quote }}
           - name: KELLNR_CRATES_IO_PROXY
             value: {{ .Values.kellnr.cratesIoProxy | quote }}
+          - name: KELLNR_LOG_LEVEL
+            value: {{ .Values.kellnr.logLevel | quote }}
           ports:
             - containerPort: {{ .Values.service.api.port }}
               name: kellnr-api

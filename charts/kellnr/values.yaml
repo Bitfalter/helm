@@ -48,7 +48,7 @@ kellnr:
   apiAddress: ""
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
-  debug: false
+  logLevel: "off"
   cratesIoProxy: false
 
 service:
@@ -64,14 +64,14 @@ pv:
   enabled: false
   name: "kellnr"
   storageClassName: "manual"
-  storage: 500Mi
+  storage: 5Gi
   path: ""
 
 pvc:
   enabled: false
   name: "kellnr"
   storageClassName: "manual"
-  storage: 500Mi
+  storage: 5Gi
 
 ingress:
   enabled: true
