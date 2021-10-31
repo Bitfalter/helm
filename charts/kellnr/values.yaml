@@ -46,7 +46,7 @@ deployment:
 kellnr:
   license: ""
   apiAddress: ""
-  apiProtocol: "https"
+  apiProtocol: "http"
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
   logLevel: "off"
@@ -78,12 +78,17 @@ ingress:
   enabled: true
   className: ""
   annotations: {}
-
   pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls: 
+    secretName: "kellnr-cert-secret"
+
+certificate:
+  enabled: false
+  secretName: "kellnr-cert-secret"
+  issuerRef:
+    name: ""
+    kind: "ClusterIssuer"
+
 
 resources:
   {}

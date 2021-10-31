@@ -73,7 +73,7 @@ Basic settings to configure _Kellnr_.
 | kellnr.apiAddress | Yes         | Address (IP or hostname) where _Kellnr_ is reachable                                          |                                  |
 | kellnr.adminPwd   | Recommended | Password of the admin user used by the web-ui. The password can be changed anytime in the UI. | kellnr                           |
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |
-| kellnr.apiProtocol | No         | Protocol where _Kellnr_ is reachable. Either *http* or *https*.                              | https                            |
+| kellnr.apiProtocol | No         | Protocol where _Kellnr_ is reachable. Either *http* or *https*.                              | http                            |
 | kellnr.logLevel      | No          | Set the log level. Has to be one of *off*, *critical*, *normal*, *debug*.| off                            |
 |kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~2GB of storage + storage for all cached crates.| false |
 
