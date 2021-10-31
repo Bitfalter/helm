@@ -98,6 +98,19 @@ Setting to configure the ingress route for the web-ui and API.
 | ingress.enabled     | No       | Enable an Kubernetes ingress route for _Kellnr_. | true    |
 | ingress.className   | No       | Set an ingress className.                        | ""      |
 | ingress.annotations | No       | Set ingress annotations.                         | {}      |
+| ingress.tls.secretName | No   | Set the secret name for a TLS certificate         | kellnr-cert-secret |
+
+### TLS Certificate
+
+Settings to configure a TLS certificate with cert-manager. **Important** If you use *Kellnr* with TLS,
+make sure to set `kellnr.apiProtocol` to `https`.
+
+| Setting | Required | Description | Default |
+| ---------------------- | -------- | ------------------------------------------------------------- | --------- |
+| certificate.enabled | No | Enable automatic TLS certificate generation with cert-mananger. | false |
+| certificate.secretName | No | The name of the certificate secret which an ingress can refer to. | kellnr-cert-secret |
+| certificate.issuerRef.kind | No | The kind of the certificate issuer, e.g. *ClusterIssuer*, or *Issuer* | ClusterIssuer |
+| certificate.issuerRef.name | Yes (if enabled) | The name of the certificate issuer e.g. cert-manager | "" |
 
 ### Persistence
 
