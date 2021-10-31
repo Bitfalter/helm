@@ -48,6 +48,8 @@ spec:
             value: {{ required "A valid license is required." .Values.kellnr.license | quote }}
           - name: KELLNR_API_ADDRESS
             value: {{ required "A valid API address, where Kellnr will be reachable is required." .Values.kellnr.apiAddress | quote }}
+          - name: KELLNR_API_PROTOCOL
+            value: {{ .Values.kellnr.apiProtocol | quote }}
           - name: KELLNR_API_PORT
             value: {{ .Values.service.api.port | quote }}
           - name: KELLNR_INDEX_PORT

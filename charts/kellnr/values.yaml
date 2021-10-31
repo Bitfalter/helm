@@ -46,6 +46,7 @@ deployment:
 kellnr:
   license: ""
   apiAddress: ""
+  apiProtocol: "https"
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
   logLevel: "off"
@@ -54,7 +55,7 @@ kellnr:
 service:
   api:
     type: ClusterIP
-    port: 8000
+    port: 80
   index:
     type: NodePort
     port: 9418
