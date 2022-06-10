@@ -85,6 +85,7 @@ Settings to configure the web-ui/API endpoint service and the crate index servic
 | ---------------------- | -------- | ------------------------------------------------------------- | --------- |
 | service.api.type       | No       | Type of the service that exports the API and web-ui endpoint. | ClusterIP |
 | service.api.port       | No       | Port of the service that exports the API and web-ui endpoint. | 80        |
+| service.api.port_proxy | No       | If a proxy is used in front of Kellnr, specify the port of the proxy here. If no proxy is used, set to `service.api.port` value. | 80        |
 | service.index.type     | No       | Type of the service that exports the crate index.             | NodePort  |
 | service.index.port     | No       | Internal port of the service that exports the crate index.    | 9418      |
 | service.index.nodePort | No       | External port of the service that exports the crate index.    | 30418     |

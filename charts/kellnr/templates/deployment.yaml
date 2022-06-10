@@ -52,6 +52,8 @@ spec:
             value: {{ .Values.kellnr.apiProtocol | quote }}
           - name: KELLNR_API_PORT
             value: {{ .Values.service.api.port | quote }}
+          - name: KELLNR_API_PORT_PROXY
+            value: {{ .Values.service.api.port_proxy | quote }}
           - name: KELLNR_INDEX_PORT
             value: {{ .Values.service.index.port | quote }}
           - name: KELLNR_ADMIN_PWD
