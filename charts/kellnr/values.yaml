@@ -50,6 +50,7 @@ kellnr:
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
   logLevel: "off"
+  rustdocAutoGen: "true"
   cratesIoProxy: false
 
 service:

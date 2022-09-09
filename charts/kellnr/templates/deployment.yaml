@@ -64,6 +64,8 @@ spec:
             value: {{ .Values.kellnr.cratesIoProxy | quote }}
           - name: KELLNR_LOG_LEVEL
             value: {{ .Values.kellnr.logLevel | quote }}
+          - name: KELLNR_RUSTDOC_AUTO_GEN
+            value: {{ .Values.kellnr.rustdocAutoGen | quote }}
           ports:
             - containerPort: {{ .Values.service.api.port }}
               name: kellnr-api
