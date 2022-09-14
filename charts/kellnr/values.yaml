@@ -91,6 +91,19 @@ certificate:
     name: ""
     kind: "ClusterIssuer"
 
+importCert:
+  enabled: false
+  useExisting: false
+  configMapName: "kellnr-cert"
+  volumeName: "kellnr-cert-storage"
+  certificate: ""
+
+dns:
+  enabled: false
+  dnsPolicy: "None"
+  dnsConfig:
+    nameservers: {}
+    searches: {}
 
 resources:
   {}

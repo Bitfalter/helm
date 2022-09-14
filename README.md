@@ -73,9 +73,10 @@ Basic settings to configure _Kellnr_.
 | kellnr.apiAddress | Yes         | Address (IP or hostname) where _Kellnr_ is reachable                                          |                                  |
 | kellnr.adminPwd   | Recommended | Password of the admin user used by the web-ui. The password can be changed anytime in the UI. | kellnr                           |
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |
-| kellnr.apiProtocol | No         | Protocol where _Kellnr_ is reachable. Either *http* or *https*.                              | http                            |
-| kellnr.logLevel      | No          | Set the log level. Has to be one of *off*, *critical*, *normal*, *debug*.| off                            |
+| kellnr.apiProtocol | No         | Protocol where _Kellnr_ is reachable. Either _http_ or _https_.                              | http                            |
+| kellnr.logLevel      | No          | Set the log level. Has to be one of _off_, _critical_, _normal_, _debug_.| off                            |
 |kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~2GB of storage + storage for all cached crates.| false |
+|kellnr.rustdocAutoGen| No | Enable automatic _rustdoc_ generation for uploaded _crates_. | true |
 
 ### Service
 
@@ -103,15 +104,62 @@ Setting to configure the ingress route for the web-ui and API.
 
 ### TLS Certificate
 
-Settings to configure a TLS certificate with cert-manager. **Important** If you use *Kellnr* with TLS,
+Settings to configure a TLS certificate with cert-manager. **Important** If you use _Kellnr_ with TLS,
 make sure to set `kellnr.apiProtocol` to `https`.
 
 | Setting | Required | Description | Default |
 | ---------------------- | -------- | ------------------------------------------------------------- | --------- |
 | certificate.enabled | No | Enable automatic TLS certificate generation with cert-mananger. | false |
 | certificate.secretName | No | The name of the certificate secret which an ingress can refer to. | kellnr-cert-secret |
-| certificate.issuerRef.kind | No | The kind of the certificate issuer, e.g. *ClusterIssuer*, or *Issuer* | ClusterIssuer |
+| certificate.issuerRef.kind | No | The kind of the certificate issuer, e.g. _ClusterIssuer_, or _Issuer_ | ClusterIssuer |
 | certificate.issuerRef.name | Yes (if enabled) | The name of the certificate issuer e.g. cert-manager | "" |
+
+### Trust a Certificate
+
+Besides the option of using a certificate to secure the access to _Kellnr_, you can import a certificate into _Kellnr_ which it will trust as a
+root certificate.
+
+> Kellnr needs to trust it's own root certificate to be able to generate Rustdocs automatically!
+
+If you use a self-signed certificate that is not trusted by default, you can import it into _Kellnr_ on application startup.
+
+| Setting | Required | Description | Default |
+| ---------------------- | -------- | ------------------------------------------------------------- | --------- |
+| importCert.enabled | No | Enable the import of a root certificate to trust | false |
+| importCert.useExisting | No | If you have an existing _ConfigMap_ that contains a certificate, set this flag to _true_, else a new _ConfigMap_ is created.  | false |
+| importCert.configMapName | No | Set the name of the created or existing _ConfigMap_ to use. | "kellnr-cert" |
+| importCert.volumeName | No | The volume name under which the _ConfigMap_ is mounted into the pod. | "kellnr-cert-storage" |
+| importCert.certificate | No | The certificate to trust in the standard PEM format. See example below. | "" |
+
+Example for `importCert.certificate`:
+
+```yaml
+importCert:
+  enabled: true
+  certificate: |
+    —–BEGIN CERTIFICATE—–
+    MIIDdTCCAl2gAwIBAgILBAAAAAABFUtaw5QwDQYJKoZIhvcNAQEFBQAwVzELMAkG
+    YWxTaWduIG52LXNhMRAwDgYDVQQLEwdSb290IENBMRswGQYDVQQDExJHbG9iYWxT
+    aWduIFJvb3QgQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDaDuaZ
+    …
+    jc6j40+Kfvvxi4Mla+pIH/EqsLmVEQS98GPR4mdmzxzdzxtIK+6NiY6arymAZavp
+    38NflNUVyRRBnMRddWQVDf9VMOyGj/8N7yy5Y0b2qvzfvGn9LhJIZJrglfCm7ymP
+    HMUfpIBvFSDJ3gyICh3WZlXi/EjJKSZp4A==
+    —–END CERTIFICATE—–
+```
+
+### DNS
+
+You can set DNS servers for _Kellnr_ which should be used instead of the default one.
+
+> Kellnr needs to be able to resolve it's own domain name, to be able to generate Rustdocs automatically.
+
+| Setting | Required | Description | Default |
+| ---------------------- | -------- | ------------------------------------------------------------- | --------- |
+| dns.enabled | No | Enable an additional _dnsPolicy_ | false |
+| dns.dnsPolicy | No | Set the _dnsPolicy_ | "None" |
+| dns.dnsConfig.nameservers | No | List of nameservers to use. | {} |
+| dns.dnsConfig.searches | No | List of searches to use. | {} |
 
 ### Persistence
 
