@@ -3,6 +3,16 @@ entries:
   kellnr:
   - apiVersion: v2
     appVersion: 2.0.0-pre2
+    created: "2022-09-14T19:58:49.030858941Z"
+    description: Helm chart for Kellnr, the Rust Crate registry by Bitfalter.
+    digest: ccb366cb442ab33dfd69f61695bfcfb1c830f2779b8d20463f4410c3519d8fa5
+    name: kellnr
+    type: application
+    urls:
+    - https://github.com/Bitfalter/helm/releases/download/kellnr-0.6.0-pre3/kellnr-0.6.0-pre3.tgz
+    version: 0.6.0-pre3
+  - apiVersion: v2
+    appVersion: 2.0.0-pre2
     created: "2022-09-14T19:49:53.68858666Z"
     description: Helm chart for Kellnr, the Rust Crate registry by Bitfalter.
     digest: ce30b93a2262108ad0d9e59b45cc7765d0d04de6e5c738b78b8b9a515837e478
@@ -271,4 +281,4 @@ entries:
     urls:
     - https://github.com/Bitfalter/helm/releases/download/kellnr-0.0.0/kellnr-0.0.0.tgz
     version: 0.0.0
-generated: "2022-09-14T19:49:53.688976865Z"
+generated: "2022-09-14T19:58:49.031235446Z"
