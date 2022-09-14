@@ -102,8 +102,10 @@ dns:
   enabled: false
   dnsPolicy: "None"
   dnsConfig:
-    nameservers: {}
-    searches: {}
+    nameservers: 
+      - ""
+    searches: 
+      - ""
 
 resources:
   {}

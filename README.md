@@ -158,8 +158,8 @@ You can set DNS servers for _Kellnr_ which should be used instead of the default
 | ---------------------- | -------- | ------------------------------------------------------------- | --------- |
 | dns.enabled | No | Enable an additional _dnsPolicy_ | false |
 | dns.dnsPolicy | No | Set the _dnsPolicy_ | "None" |
-| dns.dnsConfig.nameservers | No | List of nameservers to use. | {} |
-| dns.dnsConfig.searches | No | List of searches to use. | {} |
+| dns.dnsConfig.nameservers | No | List of nameservers to use. | - "" |
+| dns.dnsConfig.searches | No | List of searches to use. | - "" |
 
 ### Persistence
 
