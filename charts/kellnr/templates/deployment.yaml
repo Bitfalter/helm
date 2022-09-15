@@ -90,11 +90,18 @@ spec:
             - containerPort: {{ .Values.service.index.port  }}
               name: kellnr-git
               protocol: TCP
-          {{- if .Values.pvc.enabled }}
+          {{- if or .Values.pvc.enabled .Values.importCert.enabled }}
           volumeMounts:
+          {{- end }}
+            {{- if .Values.pvc.enabled }}
             - mountPath: "/opt/kdata"
               name: {{ .Values.deployment.volumes.name }}
-          {{- end }}
+            {{- end }}
+            {{- if .Values.importCert.enabled }}
+            - name: {{ .Values.importCert.volumeName }}
+              mountPath: "/opt/kdata/cert"
+              readOnly: true
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
