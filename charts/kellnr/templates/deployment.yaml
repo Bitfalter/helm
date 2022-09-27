@@ -83,6 +83,8 @@ spec:
             value: {{ .Values.kellnr.logLevel | quote }}
           - name: KELLNR_RUSTDOC_AUTO_GEN
             value: {{ .Values.kellnr.rustdocAutoGen | quote }}
+          - name: KELLNR_CACHE_SIZE
+            value: {{ .Values.kellnr.cacheSize | quote }}
           ports:
             - containerPort: {{ .Values.service.api.port }}
               name: kellnr-api

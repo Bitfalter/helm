@@ -75,8 +75,9 @@ Basic settings to configure _Kellnr_.
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |
 | kellnr.apiProtocol | No         | Protocol where _Kellnr_ is reachable. Either _http_ or _https_.                              | http                            |
 | kellnr.logLevel      | No          | Set the log level. Has to be one of _off_, _critical_, _normal_, _debug_.| off                            |
-|kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~2GB of storage + storage for all cached crates.| false |
+|kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~10GB of storage + storage for all cached crates.| false |
 |kellnr.rustdocAutoGen| No | Enable automatic _rustdoc_ generation for uploaded _crates_. | true |
+|kellnr.cacheSize | No | Number of crates cached in-memory to decrease disk I/O. If set to `0` the cache is disabled. | 1000 |
 
 ### Service
 

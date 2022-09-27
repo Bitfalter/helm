@@ -52,6 +52,7 @@ kellnr:
   logLevel: "off"
   rustdocAutoGen: "true"
   cratesIoProxy: false
+  cacheSize: 1000
 
 service:
   api:
