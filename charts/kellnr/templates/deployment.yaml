@@ -81,6 +81,10 @@ spec:
             value: {{ .Values.kellnr.cratesIoProxy | quote }}
           - name: KELLNR_LOG_LEVEL
             value: {{ .Values.kellnr.logLevel | quote }}
+          - name: KELLNR_LOG_LEVEL_ROCKET
+            value: {{ .Values.kellnr.logLevelRocket | quote }}
+          - name: KELLNR_LOG_FORMAT
+            value: {{ .Values.kellnr.logFormat | quote }}
           - name: KELLNR_RUSTDOC_AUTO_GEN
             value: {{ .Values.kellnr.rustdocAutoGen | quote }}
           - name: KELLNR_CACHE_SIZE

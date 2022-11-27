@@ -49,7 +49,9 @@ kellnr:
   apiProtocol: "http"
   adminPwd: "kellnr"
   adminToken: "Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD"
-  logLevel: "off"
+  logLevel: "info"
+  logLevelRocket: "warn"
+  logFormat: "compact"
   rustdocAutoGen: "true"
   cratesIoProxy: false
   cacheSize: 1000
