@@ -80,6 +80,8 @@ Basic settings to configure _Kellnr_.
 |kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~10GB of storage + storage for all cached crates.| false |
 |kellnr.rustdocAutoGen| No | Enable automatic _rustdoc_ generation for uploaded _crates_. | true |
 |kellnr.cacheSize | No | Number of crates cached in-memory to decrease disk I/O. If set to `0` the cache is disabled. | 1000 |
+|kellnr.maxCrateSize | No | Max. allowed upload size for crates in MB. | 100 |
+|kellnr.maxDocsSize | No | Max. allowed upload size for crate docs in MB. | 100 |
 
 ### Service
 

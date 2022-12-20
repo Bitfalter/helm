@@ -89,6 +89,10 @@ spec:
             value: {{ .Values.kellnr.rustdocAutoGen | quote }}
           - name: KELLNR_CACHE_SIZE
             value: {{ .Values.kellnr.cacheSize | quote }}
+          - name: KELLNR_MAX_CRATE_SIZE
+            value: {{ .Values.kellnr.maxCrateSize | quote }}
+          - name: KELLNR_MAX_DOCS_SIZE
+            value: {{ .Values.kellnr.maxDocsSize | quote }}
           ports:
             - containerPort: {{ .Values.service.api.port }}
               name: kellnr-api

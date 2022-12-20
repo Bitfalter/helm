@@ -55,6 +55,8 @@ kellnr:
   rustdocAutoGen: "true"
   cratesIoProxy: false
   cacheSize: 1000
+  maxCrateSize: 100
+  maxDocsSize: 100
 
 service:
   api:
