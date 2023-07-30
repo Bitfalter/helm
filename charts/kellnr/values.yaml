@@ -57,6 +57,9 @@ kellnr:
   cacheSize: 1000
   maxCrateSize: 100
   maxDocsSize: 100
+  cratesIoNumThreads: 10
+  gitIndex: "false"
+  authRequired: "false"
 
 service:
   api:
@@ -86,7 +89,7 @@ ingress:
   className: ""
   annotations: {}
   pathType: Prefix
-  tls: 
+  tls:
     secretName: "kellnr-cert-secret"
 
 certificate:
@@ -107,9 +110,9 @@ dns:
   enabled: false
   dnsPolicy: "None"
   dnsConfig:
-    nameservers: 
+    nameservers:
       - ""
-    searches: 
+    searches:
       - ""
 
 resources:

@@ -93,6 +93,12 @@ spec:
             value: {{ .Values.kellnr.maxCrateSize | quote }}
           - name: KELLNR_MAX_DOCS_SIZE
             value: {{ .Values.kellnr.maxDocsSize | quote }}
+          - name: KELLNR_CRATES_IO_NUM_THREADS
+            value: {{ .Values.kellnr.cratesIoNumThreads | quote }}
+          - name: KELLNR_GIT_INDEX
+            value: {{ .Values.kellnr.gitIndex | quote }}
+          - name: KELLNR_AUTH_REQUIRED
+            value: {{ .Values.kellnr.authRequired | quote }}
           ports:
             - containerPort: {{ .Values.service.api.port }}
               name: kellnr-api

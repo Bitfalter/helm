@@ -16,7 +16,7 @@ helm repo add bitfalter https://bitfalter.github.io/helm
 helm repo update
 ```
 
-For a list of possible configuration flags see below: [Configuration](#Configuration)
+For a list of possible configuration flags see below: [Configuration](#configuration)
 
 To install a minimal _Kellnr_ installation with in-memory storage run the command below. The in-memory storage variant is useful for testing but not recommended for production as all data (crates, users, ...) will be lost if the container restarts.
 
@@ -78,10 +78,13 @@ Basic settings to configure _Kellnr_.
 | kellnr.logLevelRocket      | No          | Set the log level for the Rocket web framework. Has to be one of _trace_, _debug_, _info_, _warn_, _error_.| warn                            |
 | kellnr.logFormat     | No          | Set the log format. Has to be one of _compact_, _pretty_, _json_ | compact                            |
 |kellnr.cratesIoProxy| No | Enable [crates.io](https://crates.io/) proxy mode to cache crates in _Kellnr_. The crates.io index takes ~10GB of storage + storage for all cached crates.| false |
+|kellnr.cratesIoNumThreads | No | Number of threads used to update the crates.io index. | 10 |
 |kellnr.rustdocAutoGen| No | Enable automatic _rustdoc_ generation for uploaded _crates_. | true |
 |kellnr.cacheSize | No | Number of crates cached in-memory to decrease disk I/O. If set to `0` the cache is disabled. | 1000 |
 |kellnr.maxCrateSize | No | Max. allowed upload size for crates in MB. | 100 |
 |kellnr.maxDocsSize | No | Max. allowed upload size for crate docs in MB. | 100 |
+|kellnr.gitIndex | No | Enable or disable the git index. Needed for cargo < 1.7.0. Recommended to disable if you use an up to date cargo version. | true |
+|kellnr.authRequired | No | Enable or disable authentication on pull. | false |
 
 ### Service
 
