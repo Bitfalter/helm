@@ -21,8 +21,7 @@ For a list of possible configuration flags see below: [Configuration](#configura
 To install a minimal _Kellnr_ installation with in-memory storage run the command below. The in-memory storage variant is useful for testing but not recommended for production as all data (crates, users, ...) will be lost if the container restarts.
 
 ```bash
-# Replace the license with your license key and set the address where Kellnr will be reachable.
-helm install kellnr bitfalter/kellnr --set kellnr.license="..." --set kellnr.apiAddress="kellnr.example.com"
+helm install kellnr bitfalter/kellnr --set kellnr.apiAddress="kellnr.example.com"
 ```
 
 For a persistent _Kellnr_ instance, a _PersistentVolumeClaim_ (PVC) is needed. The helm chart can create a _PersistentVolumeClaim_ and _PersistentVolume_ (PV), if you don't have one already.
@@ -32,7 +31,6 @@ For a persistent _Kellnr_ instance, a _PersistentVolumeClaim_ (PVC) is needed. T
 # The storage class can be overwritten with "pvc.storageClassName" and defaults to "manual".
 helm install kellnr bitfalter/kellnr \
     --set pvc.enabled=true --set pvc.name="storage_name" \
-    --set kellnr.license="..." \
     --set kellnr.apiAddress="kellnr.example.com"
 ```
 
@@ -41,7 +39,6 @@ helm install kellnr bitfalter/kellnr \
 helm install kellnr bitfalter/kellnr \
     --set pv.enabled=true --set pv.path="/mnt/kellnr" \
     --set pvc.enabled=true \
-    --set kellnr.license="..." \
     --set kellnr.apiAddress="kellnr.example.com"
 ```
 
@@ -69,7 +66,6 @@ Basic settings to configure _Kellnr_.
 
 | Setting           | Required    | Description                                                                                   | Default                          |
 | ----------------- | ----------- | --------------------------------------------------------------------------------------------- | -------------------------------- |
-| kellnr.license    | Yes         | _Kellnr_ license key.                                                                         |                                  |
 | kellnr.apiAddress | Yes         | Address (IP or hostname) where _Kellnr_ is reachable                                          |                                  |
 | kellnr.adminPwd   | Recommended | Password of the admin user used by the web-ui. The password can be changed anytime in the UI. | kellnr                           |
 | kellnr.adminToken | Recommended | Token used by Cargo for the admin user. The token can be changed anytime in the UI.           | Zy9HhJ02RJmg0GCrgLfaCVfU6IwDfhXD |

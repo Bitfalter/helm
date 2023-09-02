@@ -44,7 +44,6 @@ deployment:
     persistentVolumeClaim: "kellnr"
 
 kellnr:
-  license: ""
   apiAddress: ""
   apiProtocol: "http"
   adminPwd: "kellnr"
