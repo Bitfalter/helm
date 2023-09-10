@@ -1,3 +1,5 @@
+Moved to [kellnr.io - helm](https://github.com/kellnr/helm)
+
 # Kellnr Helm-Chart
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kellnr)](https://artifacthub.io/packages/search?repo=kellnr)
